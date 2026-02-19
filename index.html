@@ -1,0 +1,94 @@
+<!DOCTYPE html> 
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אורפה | מסעדת שווארמה</title>
+     <link rel="icon" type="image/x-icon" href="assets/favicon.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Chosen Palette: Sage & Stone (Earth Tones) -->
+    <!-- Application Structure Plan: SPA Architecture. 
+         Fixed "staggered load" issue by removing individual element animations and delays.
+         Now applying a single, unified fade-in animation to the main content container upon navigation.
+         This ensures the whole page appears at once smoothly. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-[#c3b099]/95 backdrop-blur-sm shadow-sm transition-all duration-300 border-b border-[#d1bfa9]">
+        <div class="container mx-auto px-6 py-2 sm:py-4 ">
+            <div class="flex justify-between items-center">
+                <!-- Logo עד הגודל -->
+                <div class="text-3xl font-black tracking-tighter text-[#2C5282] cursor-pointer" onclick="navigateTo('home')">
+                   <img src="assets/logo.png" width="150px" class="w-24 sm:w-32"/>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 space-x-reverse font-medium text-lg text-gray-600">
+                    <button onclick="navigateTo('home')" class="nav-link hover:text-[#C05621]" data-target="home">דף הבית</button>
+                    <button onclick="navigateTo('menu')" class="nav-link hover:text-[#C05621]" data-target="menu">תפריט</button>
+                    <button onclick="navigateTo('about')" class="nav-link hover:text-[#C05621]" data-target="about">עלינו</button>
+                    <button onclick="navigateTo('contact')" class="nav-link hover:text-[#C05621]" data-target="contact">צור קשר</button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-2xl text-gray-700 focus:outline-none">
+                    &#9776;
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
+            <div class="flex flex-col p-4 space-y-4 font-medium text-center">
+                <button onclick="navigateTo('home')" class="hover:text-[#C05621]">דף הבית</button>
+                <button onclick="navigateTo('menu')" class="hover:text-[#C05621]">תפריט</button>
+                <button onclick="navigateTo('about')" class="hover:text-[#C05621]">עלינו</button>
+                <button onclick="navigateTo('contact')" class="hover:text-[#C05621]">צור קשר</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main id="app-content" class="flex-grow opacity-0">
+        <!-- Views will be injected here by JS -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#2D3748] text-gray-300 py-12 mt-auto">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-right">
+            <div>
+                <h3 class="text-2xl font-bold text-white mb-4">כנען<span class="text-[#C05621]">.</span></h3>
+                <p class="mb-4">מטבח ישראלי מודרני המשלב מסורת עם חדשנות קולינרית.</p>
+            </div>
+            <div>
+                <h4 class="text-xl font-bold text-white mb-4">שעות פעילות</h4>
+                <p>ראשון - חמישי: 12:00 - 23:00</p>
+                <p>שישי: 12:00 - 15:00</p>
+                <p>מוצ"ש: שעה אחרי צאת השבת - 00:00</p>
+            </div>
+            <div>
+                <h4 class="text-xl font-bold text-white mb-4">עקבו אחרינו</h4>
+                <div class="flex justify-center md:justify-start space-x-4 space-x-reverse">
+                    <a href="#" class="hover:text-[#C05621] transition">Instagram</a>
+                    <a href="#" class="hover:text-[#C05621] transition">Facebook</a>
+                    <a href="#" class="hover:text-[#C05621] transition">TikTok</a>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-500">
+            &copy; 2024 מסעדת כנען. כל הזכויות שמורות. נבנה באמצעות Canvas.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

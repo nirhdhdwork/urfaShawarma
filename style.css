@@ -1,0 +1,88 @@
+
+body {
+    font-family: 'Heebo', sans-serif;
+    background-color: #F9F7F2; /* Stone White */
+    color: #2D3748; /* Dark Gray */
+    overflow-x: hidden;
+}
+
+/* Unified Fade Animation for the whole view */
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.view-animate {
+    animation: pageFadeIn 0.4s ease-out forwards;
+}
+
+/* Slider Styles */
+.slider-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+.slider-image.active {
+    opacity: 1;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #F9F7F2;
+}
+::-webkit-scrollbar-thumb {
+    background: #A0AEC0;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #718096;
+}
+
+/* Chart Container Override */
+.chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    height: 300px;
+}
+
+/* Nav Link Styles */
+.nav-link {
+    position: relative;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    right: 0;
+    background-color: #C05621;
+    transition: width 0.3s ease;
+}
+
+.nav-link.active-nav::after {
+    width: 100%;
+}
+
+.nav-link.active-nav {
+    color: #C05621;
+}
