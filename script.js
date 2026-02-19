@@ -238,8 +238,8 @@ function renderMenu(container) {
             <div class="flex flex-wrap justify-center gap-4 mb-12" id="menu-tabs">
                 ${data.menu.categories.map(cat => `
                     <button onclick="filterMenu('${cat}')" 
-                        class="menu-tab px-6 py-2 rounded-full border border-[#2D3748] text-[#2D3748] font-bold hover:bg-[#2D3748] hover:text-white transition-all ${cat === 'ראשונות' ? 'bg-[#2D3748] text-white' : ''}" 
-                        data-cat="${cat}">
+                    class="menu-tab px-6 py-2 rounded-full border border-[#2D3748] focus:outline-none font-bold hover:bg-[#2D3748] hover:text-white transition-all ${cat === 'ראשונות' ? 'bg-[#2D3748] text-white' : 'text-[#2D3758]'}"
+                    data-cat="${cat}">
                         ${cat}
                     </button>
                 `).join('')}
@@ -255,8 +255,10 @@ window.filterMenu = function(category) {
     document.querySelectorAll('.menu-tab').forEach(btn => {
         if(btn.dataset.cat === category) {
             btn.classList.add('bg-[#2D3748]', 'text-white');
+            btn.classList.remove('text-[#2D3758]');
         } else {
             btn.classList.remove('bg-[#2D3748]', 'text-white');
+            btn.classList.add('text-[#2D3758]');
         }
     });
     const grid = document.getElementById('menu-grid');
